@@ -1,3 +1,1859 @@
-<p>
-  performance works!
-</p>
+<div class="section-controller-group">
+
+    <div class="container">
+
+
+           <div class="spacer-24px"></div>
+
+                  <div class="row">
+
+                    <div class="col-sm-6">
+
+                        <div class="dropdown">
+                            <label class="dropdown-label" for="">PROGRAMS</label>
+                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                               <div id="changeValue" class="dropdown-text-program1 dropdown-text">Family Reunification | Social Services</div>
+                             </button>
+                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                               <a class="dropdown-item all dropdown-item-programs dropdown-item-top bold">All</a>
+                               <a class="dropdown-item childs-health dropdown-item-programs">Family Reunification</a>
+                               <a class="dropdown-item vets-health dropdown-item-programs ">Substance Abuse & Preventation</a>
+                               <a class="dropdown-item vets-health dropdown-item-programs ">Foster Care</a>
+                             </div>
+                           </div>
+
+
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="dropdown">
+                            <label class="dropdown-label" for="">DATE RANGE</label>
+                            <i class="fal fa-calendar-alt calendar"></i>
+                            <input class="btn btn-secondary dropdown-toggle data-range calendar" type="text" name="daterange" value="01/01/2019 - 04/01/2019"/>
+
+                          </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <label class="advanced" onclick="changeVisibility()" for=""> Advanced</label>
+                    </div>
+
+                    <script>
+                        $(function() {
+                          $('.calendar').daterangepicker({
+                            opens: 'left'
+                          }, function(start, end, label) {
+                            console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+                          });
+                        });
+                      </script>
+
+
+                  </div><!--  end of row -->
+
+
+                  <div class="spacer-24px"></div>
+
+                  <div class="row">
+
+                      <div class="col-sm-3">
+              <div class="dropdown">
+                  <label class="dropdown-label" for="">CLIENT</label>
+                   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     <div id="changeValue-client" class="dropdown-text">All</div>
+                   </button>
+                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                     <a onclick="changeData_pre()" class="dropdown-item dropdown-item-client bold" href="#">All</a>
+                     <a onclick="changeData_pre()" class="dropdown-item dropdown-item-client" href="#">Adams, Scott</a>
+                     <a onclick="changeData_pre()" class="dropdown-item dropdown-item-client" href="#">Adler, Alfred</a>
+                     <a onclick="changeData_pre()" class="dropdown-item dropdown-item-client" href="#">Ahbez, Eden</a>
+                     <a onclick="changeData_pre()" class="dropdown-item dropdown-item-client" href="#">Amiel, Barbara</a>
+                     <a onclick="changeData_pre()" class="dropdown-item dropdown-item-client" href="#">Burns, Edward</a>
+                     <a onclick="changeData_pre()" class="dropdown-item dropdown-item-client" href="#">Byrne, David</a>
+                     <a onclick="changeData_pre()" class="dropdown-item dropdown-item-client" href="#">Carter, Elliott</a>
+                     <a onclick="changeData_pre()" class="dropdown-item dropdown-item-client" href="#">Cather, Willa</a>
+                     <a onclick="changeData_pre()" class="dropdown-item dropdown-item-client" href="#">Chapin, Harry</a>
+                     <a onclick="negativeData_Stepping()" class="dropdown-item dropdown-item-client" href="#">Chicago, Judy</a>
+                     <a onclick="changeData_pre()" class="dropdown-item dropdown-item-client" href="#">Dauten, Dale</a>
+                   </div>
+              </div>
+
+          </div>
+
+          <script>
+
+              $(".dropdown-item-programs").click(function(event) {
+                  $( ".applyBtn" ).click();
+                  var text = $(event.target).text();
+                  var id = $(event.target.id)
+                  document.getElementById("changeValue").innerHTML = text + " | Human Services";
+
+                  var findValuetoUnhide = jQuery(this).attr('class').split(' ')[1]
+
+                  var value = document.getElementById(findValuetoUnhide)
+                  console.log(findValuetoUnhide + " is the value")
+
+                  var vet = document.getElementById("vets-health")
+                  $(vet).addClass("hide")
+
+                  var children = document.getElementById("childs-health")
+                  $(children).addClass("hide")
+
+                  var adult = document.getElementById("adults-health")
+                  $(adult).addClass("hide")
+
+                  $(value).removeClass( "hide")
+
+                  var container = document.getElementsByClassName("pagination-container")
+                  $(container).addClass("hide")
+
+                  if (findValuetoUnhide == "all"){
+                    console.log('this is America')
+                    $(children).removeClass("hide")
+                    $(container).removeClass("hide")
+                  }
+
+              });
+
+              $(".dropdown-item-provider").click(function(event) {
+                  $( ".applyBtn" ).click();
+                  var text = $(event.target).text();
+                  console.log(text)
+                  var id = $(event.target.id)
+                  document.getElementById("changeValue-provider").innerHTML = text;
+              });
+
+              $(".dropdown-item-client").click(function(event) {
+                  $( ".applyBtn" ).click();
+                  var text = $(event.target).text();
+                  console.log(text)
+                  var id = $(event.target.id)
+                  document.getElementById("changeValue-client").innerHTML = text;
+              });
+
+
+              </script>
+
+                      <div class="col-sm-3">
+
+
+          </div>
+
+          </div><!--  end of row -->
+
+
+
+                  <div id="myDIV" style="display: none" class="row">
+
+
+                    <div class="col-sm-6">
+
+                            <div class="dropdown">
+                                    <label class="dropdown-label" for="">AGENCY</label>
+                                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                       <div class="dropdown-text">Human Services</div>
+                                     </button>
+                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                       <a class="dropdown-item bold" href="#">All</a>
+                                       <a class="dropdown-item" href="#">Public Health</a>
+                                       <a class="dropdown-item" href="#">Housing</a>
+                                       <a class="dropdown-item" href="#">Corrections</a>
+                                     </div>
+                                   </div>
+
+                    </div>
+
+                    <div class="spacer-24px"></div>
+
+                    <div class="col-sm-6">
+
+                            <div class="dropdown">
+                                    <label class="dropdown-label" for="">COUNTY</label>
+                                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                       <div class="dropdown-text">Washington County</div>
+                                     </button>
+                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                       <a class="dropdown-item bold" href="#">All</a>
+                                       <a class="dropdown-item" href="#">Washington County</a>
+                                     </div>
+                                   </div>
+
+                    </div>
+
+
+                    <script>
+
+                        function changeVisibility(){
+                            var x = document.getElementById("myDIV");
+                                    if (x.style.display === "block") {
+                                        x.style.display = "none";
+                                    } else {
+                                        x.style.display = "block";
+                                    }
+                            }
+
+                    </script>
+
+                  </div><!--  end of row -->
+
+                  <div class="spacer-30px"></div>
+
+
+     </div><!-- end of container -->
+
+</div>  <!--  end of section-controller-group -->
+
+<div class="container">
+      <div class="summary-chart-container">
+          <div class="spacer-16px"></div>
+          <div class="row">
+            <div class="no-col-padding col-md-6">
+                <h1 class="program-header">Family Reunification</h1>
+                    <h2 class="program-description">Increase client's parenting skills in supporting child's needs</h2>
+            </div>
+
+         </div> <!-- end of row -->
+
+        <div class="spacer-20px"></div>
+        </div>
+
+      <div class="summary-chart-container summary-chart-container--performance">
+
+              <div class="spacer-41px"></div>
+
+              <!-- <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="width: 96%;">
+                  <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item active">
+                        <div style="padding-left: 72px; padding-right: 72px;" class="alert alert-danger" role="alert">
+                            During the selected timeframe, A Better Connection's overall satisfaction is 6% lower than the average provider. Consider viewing
+                            for Adult Child & Family Services, Behavior Threapy Solution of Washington or United Family Services for proof!
+                          </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div style="padding-left: 72px; padding-right: 72px;" class="alert alert-danger" role="alert">
+                            During the selected timeframe, A Better Connection's overall cost is 5% ($10,235) higher than the average provider. Consider viewing
+                            for United Family Services for proof!
+                          </div>
+                    </div>
+                  </div>
+                  <div class="spacer-41px"></div>
+                  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span style="position: relative; top: -27px; right: 46px" class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span style="position: relative; top: -27px; right: -53px" class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                  </a>
+                </div>       -->
+
+
+
+                <div class="row">
+
+
+
+                    <div class="col-md-4">
+
+                        <h1 style="padding-left: 47px;" class="chart-section-label">PROGRAM COMPLETION RATE</h1>
+                        <div class="spacer-41px"></div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div style="width: 125%; height: 100%;">
+                                    <canvas id="myChart" style="float: left; width: 100%; height: auto;"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                              <div class="chart-label-group">
+                                  <p class="chart-label"><span style="background-color: #abe9de" class="dot"></span> 0 - 25%</p>
+                                  <p class="chart-label"><span style="background-color: #ddc6e5" class="dot"></span> 25 - 50%</p>
+                                  <p class="chart-label"><span style="background-color: #f8c3bb" class="dot"></span> 75% or higher</p>
+                              </div>
+                            </div>
+                        </div> <!--end of row -->
+                    </div> <!-- end of col-md-4 -->
+
+
+                    <script>
+                        var a = Math.random()
+                        var b = Math.random()
+                        var c = Math.random()
+
+                        var ctx = document.getElementById("myChart");
+                        console.log(ctx)
+                        var myChart = new Chart(ctx, {
+                            type: 'doughnut',
+                            data: {
+                                datasets: [{
+                                    data: [a, b, c],
+                                    backgroundColor: [
+                                        '#abe9de',
+                                        '#ddc6e5',
+                                        '#f8c3bb'
+                              ],
+                              cutoutPercentage: 0
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    yAxes: [{
+                                display: false
+                              }],
+                              xAxes: [{
+                                display: false
+                              }]
+                            },
+                            percentageInnerCutout: 50
+                          },
+                          legend: {
+                            display: false,
+                            position: 'left',
+                            labels: {
+                              fontSize: 482
+                            }
+                          }
+                        });
+
+                        </script>
+
+                    <div class="col-md-4">
+
+                        <h1 style="padding-left: 40px;" class="chart-section-label">OVERALL CLIENT SATISFACTION</h1>
+                        <div class="spacer-41px"></div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div style="width: 125%; height: 100%;">
+                                    <canvas id="myChart2" style="float: left; width: 100%; height: auto;"></canvas>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                              <div class="chart-label-group">
+                                  <p class="chart-label"><span style="background-color: #abe9de" class="dot"></span> Positive</p>
+                                  <p class="chart-label"><span style="background-color: #ddc6e5" class="dot"></span> Neutral</p>
+                                  <p class="chart-label"><span style="background-color: #f8c3bb" class="dot"></span> Negative</p>
+                              </div>
+                            </div>
+                        </div> <!--end of row -->
+                    </div> <!-- end of col-md-4 -->
+
+                    <script>
+
+                        var a = Math.random()
+                        var b = Math.random()
+                        var c = Math.random()
+
+                        var ctx = document.getElementById("myChart2");
+                        console.log(ctx)
+                        var myChart = new Chart(ctx, {
+                            type: 'doughnut',
+                            data: {
+                                datasets: [{
+                                    data: [a, b, c],
+                                    backgroundColor: [
+                                        '#abe9de',
+                                        '#ddc6e5',
+                                        '#f8c3bb'
+                              ],
+                              cutoutPercentage: 0
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    yAxes: [{
+                                display: false
+                              }],
+                              xAxes: [{
+                                display: false
+                              }]
+                            },
+                            percentageInnerCutout: 50
+                          },
+                          legend: {
+                            display: false,
+                            position: 'left',
+                            labels: {
+                              fontSize: 482
+                            }
+                          }
+                        });
+
+                        </script>
+
+                        <div class="col-md-4">
+
+                            <h1 style="padding-left: 10px;" class="chart-section-label">EMOTIONAL INDEX SCORE</h1>
+                            <div class="spacer-41px"></div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div style="width: 125%; height: 100%;">
+                                        <canvas id="myChart3" style="width: 100%; height: auto;"></canvas>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                  <div class="chart-label-group">
+                                      <p class="chart-label"><span style="background-color: #abe9de" class="dot"></span> Positive</p>
+                                      <p class="chart-label"><span style="background-color: #ddc6e5" class="dot"></span> Negative</p>
+                                  </div>
+                                </div>
+                            </div> <!--end of row -->
+                        </div> <!-- end of col-md-4 -->
+
+
+                        <script>
+
+                            var a = Math.random()
+                            var b = Math.random()
+
+                            var ctx = document.getElementById("myChart3");
+                            console.log(ctx)
+                            var myChart = new Chart(ctx, {
+                                type: 'doughnut',
+                                data: {
+                                    datasets: [{
+                                        data: [a, b],
+                                        backgroundColor: [
+                                            '#abe9de',
+                                            '#ddc6e5',
+                                            '#f8c3bb'
+                                  ],
+                                  cutoutPercentage: 0
+                                    }]
+                                },
+                                options: {
+                                    scales: {
+                                        yAxes: [{
+                                    display: false
+                                  }],
+                                  xAxes: [{
+                                    display: false
+                                  }]
+                                },
+                                percentageInnerCutout: 50
+                              },
+                              legend: {
+                                display: false,
+                                position: 'left',
+                                labels: {
+                                  fontSize: 482
+                                }
+                              }
+                            });
+
+
+                        function negativeData_Refugge(){
+
+                        var a = 70
+                        var b = 10
+                        var c = 20
+
+                        var ctx = document.getElementById("myChart");
+                        console.log(ctx)
+                        var myChart = new Chart(ctx, {
+                            type: 'doughnut',
+                            data: {
+                                datasets: [{
+                                    data: [a, b, c],
+                                    backgroundColor: [
+                                        '#abe9de',
+                                        '#ddc6e5',
+                                        '#f8c3bb'
+                              ],
+                              cutoutPercentage: 0
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    yAxes: [{
+                                display: false
+                              }],
+                              xAxes: [{
+                                display: false
+                              }]
+                            },
+                            percentageInnerCutout: 50
+                          },
+                          legend: {
+                            display: false,
+                            position: 'left',
+                            labels: {
+                              fontSize: 482
+                            }
+                          }
+                        });
+
+                        var a = 20
+                        var b = 10
+                        var c = 80
+
+                        var ctx = document.getElementById("myChart2");
+                        console.log(ctx)
+                        var myChart = new Chart(ctx, {
+                            type: 'doughnut',
+                            data: {
+                                datasets: [{
+                                    data: [a, b, c],
+                                    backgroundColor: [
+                                        '#abe9de',
+                                        '#ddc6e5',
+                                        '#f8c3bb'
+                              ],
+                              cutoutPercentage: 0
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    yAxes: [{
+                                display: false
+                              }],
+                              xAxes: [{
+                                display: false
+                              }]
+                            },
+                            percentageInnerCutout: 50
+                          },
+                          legend: {
+                            display: false,
+                            position: 'left',
+                            labels: {
+                              fontSize: 482
+                            }
+                          }
+                        });
+
+                        var a = 30
+                        var b = 70
+
+                      var ctx = document.getElementById("myChart3");
+                      console.log(ctx)
+                      var myChart = new Chart(ctx, {
+                          type: 'doughnut',
+                          data: {
+                              datasets: [{
+                                  data: [a, b],
+                                  backgroundColor: [
+                                      '#abe9de',
+                                      '#ddc6e5',
+                                      '#f8c3bb'
+                            ],
+                            cutoutPercentage: 0
+                              }]
+                          },
+                          options: {
+                              scales: {
+                                  yAxes: [{
+                              display: false
+                            }],
+                            xAxes: [{
+                              display: false
+                            }]
+                          },
+                          percentageInnerCutout: 50
+                        },
+                        legend: {
+                          display: false,
+                          position: 'left',
+                          labels: {
+                            fontSize: 482
+                          }
+                        }
+                      });
+                  }
+
+                      function negativeData_Stepping(){
+
+                                      var a = 80
+                                      var b = 10
+                                      var c = 10
+
+                                      var ctx = document.getElementById("myChart");
+                                      console.log(ctx)
+                                      var myChart = new Chart(ctx, {
+                                          type: 'doughnut',
+                                          data: {
+                                              datasets: [{
+                                                  data: [a, b, c],
+                                                  backgroundColor: [
+                                                      '#abe9de',
+                                                      '#ddc6e5',
+                                                      '#f8c3bb'
+                                            ],
+                                            cutoutPercentage: 0
+                                              }]
+                                          },
+                                          options: {
+                                              scales: {
+                                                  yAxes: [{
+                                              display: false
+                                            }],
+                                            xAxes: [{
+                                              display: false
+                                            }]
+                                          },
+                                          percentageInnerCutout: 50
+                                        },
+                                        legend: {
+                                          display: false,
+                                          position: 'left',
+                                          labels: {
+                                            fontSize: 482
+                                          }
+                                        }
+                                      });
+
+                                      var a = 5
+                                      var b = 9
+                                      var c = 73
+
+                                      var ctx = document.getElementById("myChart2");
+                                      console.log(ctx)
+                                      var myChart = new Chart(ctx, {
+                                          type: 'doughnut',
+                                          data: {
+                                              datasets: [{
+                                                  data: [a, b, c],
+                                                  backgroundColor: [
+                                                      '#abe9de',
+                                                      '#ddc6e5',
+                                                      '#f8c3bb'
+                                            ],
+                                            cutoutPercentage: 0
+                                              }]
+                                          },
+                                          options: {
+                                              scales: {
+                                                  yAxes: [{
+                                              display: false
+                                            }],
+                                            xAxes: [{
+                                              display: false
+                                            }]
+                                          },
+                                          percentageInnerCutout: 50
+                                        },
+                                        legend: {
+                                          display: false,
+                                          position: 'left',
+                                          labels: {
+                                            fontSize: 482
+                                          }
+                                        }
+                                      });
+
+                                      var a = 10
+                                      var b = 90
+
+                                    var ctx = document.getElementById("myChart3");
+                                    console.log(ctx)
+                                    var myChart = new Chart(ctx, {
+                                        type: 'doughnut',
+                                        data: {
+                                            datasets: [{
+                                                data: [a, b],
+                                                backgroundColor: [
+                                                    '#abe9de',
+                                                    '#ddc6e5',
+                                                    '#f8c3bb'
+                                          ],
+                                          cutoutPercentage: 0
+                                            }]
+                                        },
+                                        options: {
+                                            scales: {
+                                                yAxes: [{
+                                            display: false
+                                          }],
+                                          xAxes: [{
+                                            display: false
+                                          }]
+                                        },
+                                        percentageInnerCutout: 50
+                                      },
+                                      legend: {
+                                        display: false,
+                                        position: 'left',
+                                        labels: {
+                                          fontSize: 482
+                                        }
+                                      }
+                                    });
+                       }
+
+                      function negativeData_Higher(){
+
+                                      var a = 70
+                                      var b = 25
+                                      var c = 5
+
+                                      var ctx = document.getElementById("myChart");
+                                      console.log(ctx)
+                                      var myChart = new Chart(ctx, {
+                                          type: 'doughnut',
+                                          data: {
+                                              datasets: [{
+                                                  data: [a, b, c],
+                                                  backgroundColor: [
+                                                      '#abe9de',
+                                                      '#ddc6e5',
+                                                      '#f8c3bb'
+                                            ],
+                                            cutoutPercentage: 0
+                                              }]
+                                          },
+                                          options: {
+                                              scales: {
+                                                  yAxes: [{
+                                              display: false
+                                            }],
+                                            xAxes: [{
+                                              display: false
+                                            }]
+                                          },
+                                          percentageInnerCutout: 50
+                                        },
+                                        legend: {
+                                          display: false,
+                                          position: 'left',
+                                          labels: {
+                                            fontSize: 482
+                                          }
+                                        }
+                                      });
+
+                                      var a = 15
+                                      var b = 20
+                                      var c = 65
+
+                                      var ctx = document.getElementById("myChart2");
+                                      console.log(ctx)
+                                      var myChart = new Chart(ctx, {
+                                          type: 'doughnut',
+                                          data: {
+                                              datasets: [{
+                                                  data: [a, b, c],
+                                                  backgroundColor: [
+                                                      '#abe9de',
+                                                      '#ddc6e5',
+                                                      '#f8c3bb'
+                                            ],
+                                            cutoutPercentage: 0
+                                              }]
+                                          },
+                                          options: {
+                                              scales: {
+                                                  yAxes: [{
+                                              display: false
+                                            }],
+                                            xAxes: [{
+                                              display: false
+                                            }]
+                                          },
+                                          percentageInnerCutout: 50
+                                        },
+                                        legend: {
+                                          display: false,
+                                          position: 'left',
+                                          labels: {
+                                            fontSize: 482
+                                          }
+                                        }
+                                      });
+
+                                      var a = 5
+                                      var b = 95
+
+                                    var ctx = document.getElementById("myChart3");
+                                    console.log(ctx)
+                                    var myChart = new Chart(ctx, {
+                                        type: 'doughnut',
+                                        data: {
+                                            datasets: [{
+                                                data: [a, b],
+                                                backgroundColor: [
+                                                    '#abe9de',
+                                                    '#ddc6e5',
+                                                    '#f8c3bb'
+                                          ],
+                                          cutoutPercentage: 0
+                                            }]
+                                        },
+                                        options: {
+                                            scales: {
+                                                yAxes: [{
+                                            display: false
+                                          }],
+                                          xAxes: [{
+                                            display: false
+                                          }]
+                                        },
+                                        percentageInnerCutout: 50
+                                      },
+                                      legend: {
+                                        display: false,
+                                        position: 'left',
+                                        labels: {
+                                          fontSize: 482
+                                        }
+                                      }
+                                    });
+                       }
+
+
+
+                      function positiveData_Family(){
+
+                                      var a = 10
+                                      var b = 20
+                                      var c = 70
+
+                                      var ctx = document.getElementById("myChart");
+                                      console.log(ctx)
+                                      var myChart = new Chart(ctx, {
+                                          type: 'doughnut',
+                                          data: {
+                                              datasets: [{
+                                                  data: [a, b, c],
+                                                  backgroundColor: [
+                                                      '#abe9de',
+                                                      '#ddc6e5',
+                                                      '#f8c3bb'
+                                            ],
+                                            cutoutPercentage: 0
+                                              }]
+                                          },
+                                          options: {
+                                              scales: {
+                                                  yAxes: [{
+                                              display: false
+                                            }],
+                                            xAxes: [{
+                                              display: false
+                                            }]
+                                          },
+                                          percentageInnerCutout: 50
+                                        },
+                                        legend: {
+                                          display: false,
+                                          position: 'left',
+                                          labels: {
+                                            fontSize: 482
+                                          }
+                                        }
+                                      });
+
+                                      var a = 75
+                                      var b = 10
+                                      var c = 15
+
+                                      var ctx = document.getElementById("myChart2");
+                                      console.log(ctx)
+                                      var myChart = new Chart(ctx, {
+                                          type: 'doughnut',
+                                          data: {
+                                              datasets: [{
+                                                  data: [a, b, c],
+                                                  backgroundColor: [
+                                                      '#abe9de',
+                                                      '#ddc6e5',
+                                                      '#f8c3bb'
+                                            ],
+                                            cutoutPercentage: 0
+                                              }]
+                                          },
+                                          options: {
+                                              scales: {
+                                                  yAxes: [{
+                                              display: false
+                                            }],
+                                            xAxes: [{
+                                              display: false
+                                            }]
+                                          },
+                                          percentageInnerCutout: 50
+                                        },
+                                        legend: {
+                                          display: false,
+                                          position: 'left',
+                                          labels: {
+                                            fontSize: 482
+                                          }
+                                        }
+                                      });
+
+                                      var a = 90
+                                      var b = 5
+
+                                    var ctx = document.getElementById("myChart3");
+                                    console.log(ctx)
+                                    var myChart = new Chart(ctx, {
+                                        type: 'doughnut',
+                                        data: {
+                                            datasets: [{
+                                                data: [a, b],
+                                                backgroundColor: [
+                                                    '#abe9de',
+                                                    '#ddc6e5',
+                                                    '#f8c3bb'
+                                          ],
+                                          cutoutPercentage: 0
+                                            }]
+                                        },
+                                        options: {
+                                            scales: {
+                                                yAxes: [{
+                                            display: false
+                                          }],
+                                          xAxes: [{
+                                            display: false
+                                          }]
+                                        },
+                                        percentageInnerCutout: 50
+                                      },
+                                      legend: {
+                                        display: false,
+                                        position: 'left',
+                                        labels: {
+                                          fontSize: 482
+                                        }
+                                      }
+                                    });
+                       }
+
+
+                      function positiveData_People(){
+
+                                      var a = 70
+                                      var b = 25
+                                      var c = 5
+
+                                      var ctx = document.getElementById("myChart");
+                                      console.log(ctx)
+                                      var myChart = new Chart(ctx, {
+                                          type: 'doughnut',
+                                          data: {
+                                              datasets: [{
+                                                  data: [a, b, c],
+                                                  backgroundColor: [
+                                                      '#abe9de',
+                                                      '#ddc6e5',
+                                                      '#f8c3bb'
+                                            ],
+                                            cutoutPercentage: 0
+                                              }]
+                                          },
+                                          options: {
+                                              scales: {
+                                                  yAxes: [{
+                                              display: false
+                                            }],
+                                            xAxes: [{
+                                              display: false
+                                            }]
+                                          },
+                                          percentageInnerCutout: 50
+                                        },
+                                        legend: {
+                                          display: false,
+                                          position: 'left',
+                                          labels: {
+                                            fontSize: 482
+                                          }
+                                        }
+                                      });
+
+                                      var a = 15
+                                      var b = 20
+                                      var c = 65
+
+                                      var ctx = document.getElementById("myChart2");
+                                      console.log(ctx)
+                                      var myChart = new Chart(ctx, {
+                                          type: 'doughnut',
+                                          data: {
+                                              datasets: [{
+                                                  data: [a, b, c],
+                                                  backgroundColor: [
+                                                      '#abe9de',
+                                                      '#ddc6e5',
+                                                      '#f8c3bb'
+                                            ],
+                                            cutoutPercentage: 0
+                                              }]
+                                          },
+                                          options: {
+                                              scales: {
+                                                  yAxes: [{
+                                              display: false
+                                            }],
+                                            xAxes: [{
+                                              display: false
+                                            }]
+                                          },
+                                          percentageInnerCutout: 50
+                                        },
+                                        legend: {
+                                          display: false,
+                                          position: 'left',
+                                          labels: {
+                                            fontSize: 482
+                                          }
+                                        }
+                                      });
+
+                                      var a = 5
+                                      var b = 95
+
+                                    var ctx = document.getElementById("myChart3");
+                                    console.log(ctx)
+                                    var myChart = new Chart(ctx, {
+                                        type: 'doughnut',
+                                        data: {
+                                            datasets: [{
+                                                data: [a, b],
+                                                backgroundColor: [
+                                                    '#abe9de',
+                                                    '#ddc6e5',
+                                                    '#f8c3bb'
+                                          ],
+                                          cutoutPercentage: 0
+                                            }]
+                                        },
+                                        options: {
+                                            scales: {
+                                                yAxes: [{
+                                            display: false
+                                          }],
+                                          xAxes: [{
+                                            display: false
+                                          }]
+                                        },
+                                        percentageInnerCutout: 50
+                                      },
+                                      legend: {
+                                        display: false,
+                                        position: 'left',
+                                        labels: {
+                                          fontSize: 482
+                                        }
+                                      }
+                                    });
+                       }
+
+
+                      function positiveData_Helping(){
+
+                                      var a = 15
+                                      var b = 25
+                                      var c = 70
+
+                                      var ctx = document.getElementById("myChart");
+                                      console.log(ctx)
+                                      var myChart = new Chart(ctx, {
+                                          type: 'doughnut',
+                                          data: {
+                                              datasets: [{
+                                                  data: [a, b, c],
+                                                  backgroundColor: [
+                                                      '#abe9de',
+                                                      '#ddc6e5',
+                                                      '#f8c3bb'
+                                            ],
+                                            cutoutPercentage: 0
+                                              }]
+                                          },
+                                          options: {
+                                              scales: {
+                                                  yAxes: [{
+                                              display: false
+                                            }],
+                                            xAxes: [{
+                                              display: false
+                                            }]
+                                          },
+                                          percentageInnerCutout: 50
+                                        },
+                                        legend: {
+                                          display: false,
+                                          position: 'left',
+                                          labels: {
+                                            fontSize: 482
+                                          }
+                                        }
+                                      });
+
+                                      var a = 65
+                                      var b = 25
+                                      var c = 35
+
+                                      var ctx = document.getElementById("myChart2");
+                                      console.log(ctx)
+                                      var myChart = new Chart(ctx, {
+                                          type: 'doughnut',
+                                          data: {
+                                              datasets: [{
+                                                  data: [a, b, c],
+                                                  backgroundColor: [
+                                                      '#abe9de',
+                                                      '#ddc6e5',
+                                                      '#f8c3bb'
+                                            ],
+                                            cutoutPercentage: 0
+                                              }]
+                                          },
+                                          options: {
+                                              scales: {
+                                                  yAxes: [{
+                                              display: false
+                                            }],
+                                            xAxes: [{
+                                              display: false
+                                            }]
+                                          },
+                                          percentageInnerCutout: 50
+                                        },
+                                        legend: {
+                                          display: false,
+                                          position: 'left',
+                                          labels: {
+                                            fontSize: 482
+                                          }
+                                        }
+                                      });
+
+                                      var a = 85
+                                      var b = 15
+
+                                    var ctx = document.getElementById("myChart3");
+                                    console.log(ctx)
+                                    var myChart = new Chart(ctx, {
+                                        type: 'doughnut',
+                                        data: {
+                                            datasets: [{
+                                                data: [a, b],
+                                                backgroundColor: [
+                                                    '#abe9de',
+                                                    '#ddc6e5',
+                                                    '#f8c3bb'
+                                          ],
+                                          cutoutPercentage: 0
+                                            }]
+                                        },
+                                        options: {
+                                            scales: {
+                                                yAxes: [{
+                                            display: false
+                                          }],
+                                          xAxes: [{
+                                            display: false
+                                          }]
+                                        },
+                                        percentageInnerCutout: 50
+                                      },
+                                      legend: {
+                                        display: false,
+                                        position: 'left',
+                                        labels: {
+                                          fontSize: 482
+                                        }
+                                      }
+                                    });
+                       }
+
+
+
+
+                            </script>
+
+                </div>
+
+                <div class="spacer-67-21px"></div>
+
+              </div>
+
+
+            <div class="summary-chart-container summary-chart-container--tabs">
+
+            <div class="container">
+                <div class="row">
+                      <div onclick="switchTab(), changeData_pre()" style="width: 33.3%" class="tab-container--active">
+                          <p class="tab-label" id="sectionA">Pre-program</p>
+                          <p class="tab-dateRange">01/01/19 - 01/06/19</p>
+                      </div>
+                      <div onclick="switchTab(), changeData_mid()" style="width: 33.3%" class="tab-container">
+                          <p id="sectionB" class="tab-label">Mid-program</p>
+                          <p class="tab-dateRange">01/07/19 - 02/11/19</p>
+                      </div>
+                      <div onclick="switchTab(), changeData_post()" style="width: 30.7%" class="tab-container">
+                          <p id="sectionC" class="tab-label">Post-program</p>
+                          <p class="tab-dateRange">02/12/19 - 04/01/19</p>
+                      </div>
+                 </div><!-- end of row -->
+
+
+
+                 <script>
+
+                    function changeData_pre(){
+
+                      var dateRange = $(event.target).next().html()
+                      var toggle = document.getElementsByClassName("data-range")
+                      $(toggle).val(dateRange)
+
+                      var a = Math.random()
+                      var b = Math.random()
+                      var c = Math.random()
+
+                      var ctx = document.getElementById("myChart");
+                      console.log(ctx)
+                      var myChart = new Chart(ctx, {
+                          type: 'doughnut',
+                          data: {
+                              datasets: [{
+                                  data: [a, b, c],
+                                  backgroundColor: [
+                                      '#abe9de',
+                                      '#ddc6e5',
+                                      '#f8c3bb'
+                            ],
+                            cutoutPercentage: 0
+                              }]
+                          },
+                          options: {
+                              scales: {
+                                  yAxes: [{
+                              display: false
+                            }],
+                            xAxes: [{
+                              display: false
+                            }]
+                          },
+                          percentageInnerCutout: 50
+                        },
+                        legend: {
+                          display: false,
+                          position: 'left',
+                          labels: {
+                            fontSize: 482
+                          }
+                        }
+                      });
+
+                      var d = Math.random()
+                      var e = Math.random()
+                      var f = Math.random()
+
+                   var ctx = document.getElementById("myChart2");
+                      console.log(ctx)
+                      var myChart = new Chart(ctx, {
+                          type: 'doughnut',
+                          data: {
+                              datasets: [{
+                                  data: [d, e, f],
+                                  backgroundColor: [
+                                      '#abe9de',
+                                      '#ddc6e5',
+                                      '#f8c3bb'
+                            ],
+                            cutoutPercentage: 0
+                              }]
+                          },
+                          options: {
+                              scales: {
+                                  yAxes: [{
+                              display: false
+                            }],
+                            xAxes: [{
+                              display: false
+                            }]
+                          },
+                          percentageInnerCutout: 50
+                        },
+                        legend: {
+                          display: false,
+                          position: 'left',
+                          labels: {
+                            fontSize: 482
+                          }
+                        }
+                      });
+
+                  var g = Math.random()
+                  var h = Math.random()
+
+                   var ctx = document.getElementById("myChart3");
+                      console.log(ctx)
+                      var myChart = new Chart(ctx, {
+                          type: 'doughnut',
+                          data: {
+                              datasets: [{
+                                  data: [g, h],
+                                  backgroundColor: [
+                                      '#abe9de',
+                                      '#ddc6e5',
+                                      '#f8c3bb'
+                            ],
+                            cutoutPercentage: 0
+                              }]
+                          },
+                          options: {
+                              scales: {
+                                  yAxes: [{
+                              display: false
+                            }],
+                            xAxes: [{
+                              display: false
+                            }]
+                          },
+                          percentageInnerCutout: 50
+                        },
+                        legend: {
+                          display: false,
+                          position: 'left',
+                          labels: {
+                            fontSize: 482
+                          }
+                        }
+                      });
+
+                    }
+
+
+
+                    function changeData_mid(){
+
+                      var dateRange = $(event.target).next().html()
+                      var toggle = document.getElementsByClassName("data-range")
+                      $(toggle).val(dateRange)
+
+                    var ctx = document.getElementById("myChart");
+                    console.log(ctx)
+                    var myChart = new Chart(ctx, {
+                        type: 'doughnut',
+                        data: {
+                            datasets: [{
+                                data: [40, 20, 90],
+                                backgroundColor: [
+                                    '#abe9de',
+                                    '#ddc6e5',
+                                    '#f8c3bb'
+                          ],
+                          cutoutPercentage: 0
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                yAxes: [{
+                            display: false
+                          }],
+                          xAxes: [{
+                            display: false
+                          }]
+                        },
+                        percentageInnerCutout: 50
+                      },
+                      legend: {
+                        display: false,
+                        position: 'left',
+                        labels: {
+                          fontSize: 482
+                        }
+                      }
+                    });
+
+                    var ctx = document.getElementById("myChart2");
+                    console.log(ctx)
+                    var myChart = new Chart(ctx, {
+                        type: 'doughnut',
+                        data: {
+                            datasets: [{
+                                data: [40, 60, 30],
+                                backgroundColor: [
+                                    '#abe9de',
+                                    '#ddc6e5',
+                                    '#f8c3bb'
+                          ],
+                          cutoutPercentage: 0
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                yAxes: [{
+                            display: false
+                          }],
+                          xAxes: [{
+                            display: false
+                          }]
+                        },
+                        percentageInnerCutout: 50
+                      },
+                      legend: {
+                        display: false,
+                        position: 'left',
+                        labels: {
+                          fontSize: 482
+                        }
+                      }
+                    });
+
+                    var ctx = document.getElementById("myChart3");
+                    console.log(ctx)
+                    var myChart = new Chart(ctx, {
+                        type: 'doughnut',
+                        data: {
+                            datasets: [{
+                                data: [90, 10],
+                                backgroundColor: [
+                                    '#abe9de',
+                                    '#ddc6e5',
+                                    '#f8c3bb'
+                          ],
+                          cutoutPercentage: 0
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                yAxes: [{
+                            display: false
+                          }],
+                          xAxes: [{
+                            display: false
+                          }]
+                        },
+                        percentageInnerCutout: 50
+                      },
+                      legend: {
+                        display: false,
+                        position: 'left',
+                        labels: {
+                          fontSize: 482
+                        }
+                      }
+                    });
+
+                    }
+
+                    function changeData_post(){
+
+                    var dateRange = $(event.target).next().html()
+                    var toggle = document.getElementsByClassName("data-range")
+                    $(toggle).val(dateRange)
+
+                    var ctx = document.getElementById("myChart");
+                    console.log(ctx)
+                    var myChart = new Chart(ctx, {
+                        type: 'doughnut',
+                        data: {
+                            datasets: [{
+                                data: [5, 5, 70],
+                                backgroundColor: [
+                                    '#abe9de',
+                                    '#ddc6e5',
+                                    '#f8c3bb'
+                          ],
+                          cutoutPercentage: 0
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                yAxes: [{
+                            display: false
+                          }],
+                          xAxes: [{
+                            display: false
+                          }]
+                        },
+                        percentageInnerCutout: 50
+                      },
+                      legend: {
+                        display: false,
+                        position: 'left',
+                        labels: {
+                          fontSize: 482
+                        }
+                      }
+                    });
+
+                    var ctx = document.getElementById("myChart2");
+                    console.log(ctx)
+                    var myChart = new Chart(ctx, {
+                        type: 'doughnut',
+                        data: {
+                            datasets: [{
+                                data: [40, 60, 30],
+                                backgroundColor: [
+                                    '#abe9de',
+                                    '#ddc6e5',
+                                    '#f8c3bb'
+                          ],
+                          cutoutPercentage: 0
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                yAxes: [{
+                            display: false
+                          }],
+                          xAxes: [{
+                            display: false
+                          }]
+                        },
+                        percentageInnerCutout: 50
+                      },
+                      legend: {
+                        display: false,
+                        position: 'left',
+                        labels: {
+                          fontSize: 482
+                        }
+                      }
+                    });
+
+                    var ctx = document.getElementById("myChart3");
+                    console.log(ctx)
+                    var myChart = new Chart(ctx, {
+                        type: 'doughnut',
+                        data: {
+                            datasets: [{
+                                data: [90, 10],
+                                backgroundColor: [
+                                    '#abe9de',
+                                    '#ddc6e5',
+                                    '#f8c3bb'
+                          ],
+                          cutoutPercentage: 0
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                yAxes: [{
+                            display: false
+                          }],
+                          xAxes: [{
+                            display: false
+                          }]
+                        },
+                        percentageInnerCutout: 50
+                      },
+                      legend: {
+                        display: false,
+                        position: 'left',
+                        labels: {
+                          fontSize: 482
+                        }
+                      }
+                    });
+
+                    }
+
+
+
+
+                      </script>
+
+
+  <!-- START: This is SECTION A-->
+
+                 <section class="sectionA">
+
+                      <div class="spacer-30px"></div>
+
+                      <div class="row">
+                          <div class="col-sm-7">
+                                <p class="tab-section-question">Pre-program: Increase positive perception of parents tending to child's needs</p>
+                          </div>
+
+                          <div class="col-sm-5">
+
+                                        <div class="wrap wrap--survey--program">
+                                          <div class="control-box-survey">
+                                              <i class="fal fa-pencil-alt icon-center"></i>
+                                              <label class="icon-label" for="">Survey</label>
+                                          </div>
+                                        </div>
+
+                            </div>
+
+                      </div> <!-- end of row -->
+
+                      <div class="spacer-30px"></div>
+
+                      <div class="tab-accordion-container">
+
+                          <div class="tab-accordion">
+
+                            <i class="fas fa-angle-up"><span class="tab-accordion-label">LONG TERM</span></i>
+                          </div>
+
+                        </div> <!-- end of tab-accordion-container -->
+
+                        <div style="padding-bottom: 20px" class="quesiton-container">
+                                <p class="question-header">1. Increase positive experience of child re-entering parent's home </p>
+                                <p class="questionORanswer">Question</p>
+                                <p class="questionORanswer-description">Does your client feel as though their personal home is currently safe for them?</p>
+
+                                <p class="answer">Answer</p>
+
+                                <div id="chartContainer" style=" padding-left: 20px; padding-bottom: 20px; text-align: left; height: 300px; width: 90%;"></div>
+
+                                <div style="padding-bottom: 30px;"></div>
+
+                        </div>
+
+
+                        <div class="tab-accordion-container">
+
+                          <div class="tab-accordion">
+
+                            <i class="fas fa-angle-down tab-accordion-down"><span class="tab-accordion-label">MEDIUM TERM</span></i>
+                          </div>
+
+                        </div> <!-- end of tab-accordion-container -->
+
+                        <div class="tab-accordion-container">
+
+                          <div class="tab-accordion">
+
+                            <i class="fas fa-angle-down tab-accordion-down"><span class="tab-accordion-label">SHORT TERM</span></i>
+                          </div>
+
+                        </div> <!-- end of tab-accordion-container -->
+
+                        <div class="spacer-30px"></div>
+
+              </section>
+
+  <!-- END: This is SECTION A-->
+
+  <!-- START: This is SECTION B-->
+
+  <section class="sectionB hide">
+
+      <div class="spacer-30px"></div>
+
+      <div class="row">
+          <div class="col-sm-7">
+                <p class="tab-section-question"> Mid-program: Increase positive perception of parents tending to child's needs</p>
+          </div>
+
+          <div class="col-sm-5">
+
+                        <div class="wrap wrap--survey--program">
+                          <div class="control-box-survey">
+                              <i class="fal fa-pencil-alt icon-center"></i>
+                              <label class="icon-label" for="">Survey</label>
+                          </div>
+                        </div>
+
+            </div>
+
+      </div> <!-- end of row -->
+
+      <div class="spacer-30px"></div>
+
+      <div class="tab-accordion-container">
+
+          <div class="tab-accordion">
+
+            <i class="fas fa-angle-up"><span class="tab-accordion-label">LONG TERM</span></i>
+          </div>
+
+        </div> <!-- end of tab-accordion-container -->
+
+        <div style="padding-bottom: 20px" class="quesiton-container">
+                <p class="question-header">1. Increase positive experience of child re-entering parent's home</p>
+                <p class="questionORanswer">Question</p>
+                <p class="questionORanswer-description">Does your client feel as though their personal home is currently safe for them?</p>
+
+                <p class="answer">Answer</p>
+
+                <div id="chartContainer2" style=" padding-left: 20px; padding-bottom: 20px; text-align: left; height: 300px; width: 90%;"></div>
+
+                <div style="padding-bottom: 30px;"></div>
+
+        </div>
+
+
+        <div class="tab-accordion-container">
+
+          <div class="tab-accordion">
+
+            <i class="fas fa-angle-down tab-accordion-down"><span class="tab-accordion-label">MEDIUM TERM</span></i>
+          </div>
+
+        </div> <!-- end of tab-accordion-container -->
+
+        <div class="tab-accordion-container">
+
+          <div class="tab-accordion">
+
+            <i c flass="fas fa-angle-down tab-accordion-down"><span class="tab-accordion-label">SHORT TERM</span></i>
+          </div>
+
+        </div> <!-- end of tab-accordion-container -->
+
+        <div class="spacer-30px"></div>
+
+  </section>
+
+  <!-- END: This is SECTION B-->
+
+
+  <!-- START: This is SECTION C-->
+
+  <section class="sectionC hide">
+
+      <div class="spacer-30px"></div>
+
+      <div class="row">
+          <div class="col-sm-7">
+                <p class="tab-section-question">Post-program: Increase positive perception of parents tending to child's needs</p>
+          </div>
+
+          <div class="col-sm-5">
+
+                        <div class="wrap wrap--survey--program">
+                          <div class="control-box-survey">
+                              <i class="fal fa-pencil-alt icon-center"></i>
+                              <label class="icon-label" for="">Survey</label>
+                          </div>
+                        </div>
+
+            </div>
+
+      </div> <!-- end of row -->
+
+      <div class="spacer-30px"></div>
+
+      <div class="tab-accordion-container">
+
+          <div class="tab-accordion">
+
+            <i class="fas fa-angle-up"><span class="tab-accordion-label">LONG TERM</span></i>
+          </div>
+
+        </div> <!-- end of tab-accordion-container -->
+
+        <div style="padding-bottom: 20px" class="quesiton-container">
+                <p class="question-header">1. Increase positive experience of child re-entering parent's home</p>
+                <p class="questionORanswer">Question</p>
+                <p class="questionORanswer-description">Does your client feel as though their personal home is currently safe for them?</p>
+
+                <p class="answer">Answer</p>
+
+                <div id="chartContainer3" style=" padding-left: 20px; padding-bottom: 20px; text-align: left; height: 300px; width: 90%;"></div>
+
+                <div style="padding-bottom: 30px;"></div>
+
+        </div>
+
+
+        <div class="tab-accordion-container">
+
+          <div class="tab-accordion">
+
+            <i class="fas fa-angle-down tab-accordion-down"><span class="tab-accordion-label">MEDIUM TERM</span></i>
+          </div>
+
+        </div> <!-- end of tab-accordion-container -->
+
+        <div class="tab-accordion-container">
+
+          <div class="tab-accordion">
+
+            <i class="fas fa-angle-down tab-accordion-down"><span class="tab-accordion-label">SHORT TERM</span></i>
+          </div>
+
+        </div> <!-- end of tab-accordion-container -->
+
+        <div class="spacer-30px"></div>
+
+  </section>
+
+  <!-- END: This is SECTION C-->
+
+
+
+  <script>
+
+    function switchTab(){
+      console.log("hello!!!")
+       $(event.target).parent().removeClass("tab-container--active").addClass("tab-container")
+
+      var capturedID = event.target.id
+
+        if (capturedID === "sectionA"){
+
+             var sectionA = document.getElementsByClassName("sectionA")
+             $(sectionA).removeClass("hide")
+
+             var sectionB = document.getElementsByClassName("sectionB")
+             $(sectionB).addClass("hide")
+
+             var sectionC = document.getElementsByClassName("sectionC")
+             $(sectionC).addClass("hide")
+
+            var sectionA_ID = document.getElementById("sectionA")
+            var sectionB_ID = document.getElementById("sectionB")
+            var sectionC_ID = document.getElementById("sectionC")
+
+            $(sectionA_ID).parent().removeClass("tab-container").addClass("tab-container--active")
+            $(sectionB_ID).parent().removeClass("tab-container--active").addClass("tab-container")
+            $(sectionC_ID).parent().removeClass("tab-container--active").addClass("tab-container")
+
+
+        }else if(capturedID === "sectionB"){
+
+             var sectionB = document.getElementsByClassName("sectionB")
+             $(sectionB).removeClass("hide")
+
+             var sectionA = document.getElementsByClassName("sectionA")
+             $(sectionA).addClass("hide")
+
+             var sectionC = document.getElementsByClassName("sectionC")
+             $(sectionC).addClass("hide")
+
+            var sectionA_ID = document.getElementById("sectionA")
+            var sectionB_ID = document.getElementById("sectionB")
+            var sectionC_ID = document.getElementById("sectionC")
+
+            $(sectionB_ID).parent().removeClass("tab-container").addClass("tab-container--active")
+            $(sectionA_ID).parent().removeClass("tab-container--active").addClass("tab-container")
+            $(sectionC_ID).parent().removeClass("tab-container--active").addClass("tab-container")
+
+        }
+        else if(capturedID == "sectionC"){
+
+             var sectionC = document.getElementsByClassName("sectionC")
+             $(sectionC).removeClass("hide")
+
+             var sectionA = document.getElementsByClassName("sectionA")
+             $(sectionA).addClass("hide")
+
+             var sectionB = document.getElementsByClassName("sectionB")
+             $(sectionB).addClass("hide")
+
+            var sectionA_ID = document.getElementById("sectionA")
+            var sectionB_ID = document.getElementById("sectionB")
+            var sectionC_ID = document.getElementById("sectionC")
+
+            $(sectionC_ID).parent().removeClass("tab-container").addClass("tab-container--active")
+            $(sectionB_ID).parent().removeClass("tab-container--active").addClass("tab-container")
+            $(sectionA_ID).parent().removeClass("tab-container--active").addClass("tab-container")
+
+
+        }
+
+
+
+    }
+
+
+  </script>
+
+
+              <div>
+
+              </div>
+            </div>

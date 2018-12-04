@@ -1,3 +1,700 @@
-<p>
-  clients works!
-</p>
+<div class="section-controller-group">
+
+        <div class="container">
+
+
+               <div class="spacer-24px"></div>
+
+                      <div class="row">
+
+                        <div class="col-sm-6">
+
+                          <div class="dropdown">
+                              <label class="dropdown-label" for="">PROGRAMS</label>
+                              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <div id="changeValue" class="dropdown-text-program1 dropdown-text">Family Reunification | Social Services</div>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item all dropdown-item-programs dropdown-item-top bold">All</a>
+                                <a class="dropdown-item childs-health dropdown-item-programs">Family Reunification</a>
+                                <a class="dropdown-item vets-health dropdown-item-programs ">Substance Abuse & Preventation</a>
+                                <a class="dropdown-item vets-health dropdown-item-programs ">Foster Care</a>
+                              </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="col-sm-3">
+                            <div class="dropdown">
+                                <label class="dropdown-label" for="">DATE RANGE</label>
+                                <i class="fal fa-calendar-alt calendar"></i>
+                                <input class="btn btn-secondary dropdown-toggle calendar" type="text" name="daterange" value="01/01/2019 - 04/01/2019"/>
+
+                              </div>
+                        </div>
+
+                        <div class="col-sm-3">
+                          <label class="advanced" onclick="changeVisibility()" for=""> Advanced</label>
+                       </div>
+
+
+                        <script>
+                            $(function() {
+                              $('.calendar').daterangepicker({
+                                opens: 'left'
+                              }, function(start, end, label) {
+                                console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+                              });
+                            });
+                          </script>
+
+					  </div><!--  end of row -->
+
+					  <div class="spacer-24px"></div>
+
+                      <div class="row">
+
+                        <div class="col-sm-3">
+                            <div class="dropdown">
+                                <label class="dropdown-label" for="">CLIENT</label>
+                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                   <div id="changeValue-client" class="dropdown-text">Chicago, Judy</div>
+                                 </button>
+                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                   <a onclick="changeData_pre()" class="dropdown-item dropdown-item-client bold">All</a>
+                                   <a onclick="changeData_pre()" class="dropdown-item dropdown-item-client">Adams, Scott</a>
+                                   <a onclick="changeData_pre()" class="dropdown-item dropdown-item-client">Adler, Alfred</a>
+                                   <a onclick="changeData_pre()" class="dropdown-item dropdown-item-client">Ahbez, Eden</a>
+                                   <a onclick="changeData_pre()" class="dropdown-item dropdown-item-client">Amiel, Barbara</a>
+                                   <a onclick="changeData_pre()" class="dropdown-item dropdown-item-client">Burns, Edward</a>
+                                   <a onclick="changeData_pre()" class="dropdown-item dropdown-item-client">Byrne, David</a>
+                                   <a onclick="changeData_pre()" class="dropdown-item dropdown-item-client">Carter, Elliott</a>
+                                   <a onclick="changeData_pre()" class="dropdown-item dropdown-item-client">Cather, Willa</a>
+                                   <a onclick="changeData_pre()" class="dropdown-item dropdown-item-client">Chapin, Harry</a>
+                                   <a onclick="changeData_pre()" class="dropdown-item dropdown-item-client">Chicago, Judy</a>
+                                   <a onclick="changeData_pre()" class="dropdown-item dropdown-item-client">Dauten, Dale</a>
+                                 </div>
+                            </div>
+
+						</div>
+
+						</div>
+
+					  </div><!--  end of row -->
+
+                        <div id="myDIV" style="display: none" class="row">
+
+						<div class="spacer-24px"></div>
+
+                          <div class="col-sm-6">
+
+                                  <div class="dropdown">
+                                          <label class="dropdown-label" for="">AGENCY</label>
+                                          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <div class="dropdown-text">Human Services</div>
+                                          </button>
+                                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item bold" href="#">All</a>
+                                            <a class="dropdown-item" href="#">Public Health</a>
+                                            <a class="dropdown-item" href="#">Housing</a>
+                                            <a class="dropdown-item" href="#">Corrections</a>
+                                          </div>
+                                        </div>
+
+                          </div>
+
+                          <div class="spacer-24px"></div>
+
+                          <div class="col-sm-6">
+
+                                  <div class="dropdown">
+                                          <label class="dropdown-label" for="">COUNTY</label>
+                                          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <div class="dropdown-text">Washington County</div>
+                                          </button>
+                                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item bold" href="#">All</a>
+                                            <a class="dropdown-item" href="#">Anoka County</a>
+                                            <a class="dropdown-item" href="#">Becker County</a>
+                                            <a class="dropdown-item" href="#">Beltrami County</a>
+                                          </div>
+                                        </div>
+
+                          </div>
+
+                        <script>
+
+                          function changeVisibility(){
+                              var x = document.getElementById("myDIV");
+                                      if (x.style.display === "block") {
+                                          x.style.display = "none";
+                                      } else {
+                                          x.style.display = "block";
+                                      }
+                              }
+
+                      </script>
+
+
+                      <div class="spacer-30px"></div>
+
+         </div><!-- end of container -->
+
+		</div>  <!--  end of section-controller-group -->
+
+    <div class="section-controller-group">
+
+    <div class="container">
+
+          <div class="summary-chart-container">
+
+          <!-- <div class="spacer-41px"></div> -->
+
+          <!-- <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner" role="listbox">
+                  <div class="carousel-item active">
+                      <div style="padding-left: 72px; padding-right: 72px;" class="alert alert-success" role="alert">
+                          Within the time frame selected, the providers most frequently reporting positive feedback and (comparably) low costs are: <span onclick="postiveProvider()" style="text-decoration: underline">The Family Place</span>  & <span onclick="postiveProvider()" style="text-decoration: underline"> A Helping Hand</span>
+                        </div>
+                  </div>
+                  <div class="carousel-item">
+                      <div style="padding-left: 72px; padding-right: 72px;" class="alert alert-danger" role="alert">
+                          Within the time frame selected, the providers most frequently reporting negative feedback and (comparably) high costs are: <span onclick="negativeProvider()" style="text-decoration: underline"> Higher Ground Shelter </span> & <span onclick="negativeProvider()" style="text-decoration: underline"> The Refuge</span>
+
+                        </div>
+                  </div>
+                </div>
+              <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span style="position: relative; top: -7px; right: 46px" class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span style="position: relative; top: -7px; right: -53px" class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div> -->
+
+            <div style="height: 20px;"></div>
+
+
+
+            <div class="container mt-5 mb-5">
+                <div class="row">
+                  <div class="col-md-6">
+                    <h4>Judy's story</h4>
+
+                    2019
+                    <ul class="timeline">
+                      <li class="timeline-failure">
+                        <p style="padding-top: 0px; padding-bottom: 0px;">Enrollment Date: IN-PROGRESS </p>
+                        <p style="padding-top: 0px; padding-bottom: 0px;">Program Name: <a style="color: #0a9cdf; border-bottom: none;" href="">Family Reunification </a></p>
+                        <p style="padding-top: 0px; padding-bottom: 0px;">Positive: 10% | Negative: 70% | Neutral: 20% </p>
+
+                      </li>
+                    </ul>
+
+                    2018
+                    <ul class="timeline">
+                      <li class="timeline-failure">
+                        <p style="padding-top: 0px; padding-bottom: 0px;">Enrollment Date: INCOMPLETED </p>
+                        <p style="padding-top: 0px; padding-bottom: 0px;">Program Name: <a style="color: #0a9cdf; border-bottom: none;" href="">Substance Abuse & Preventation</a></p>
+                        <p style="padding-top: 0px; padding-bottom: 0px;">Positive: 90% | Negative: 5% | Neutral: 5% </p>
+
+                      </li>
+                      <li class="timeline-success">
+                        <p style="padding-top: 0px; padding-bottom: 0px;">Enrollment Date: 05/13/18 - 8/16/18 </p>
+                        <p style="padding-top: 0px; padding-bottom: 0px;">Program Name: <a style="color: #0a9cdf; border-bottom: none;" href="">Foster Care</a></p>
+                        <p style="padding-top: 0px; padding-bottom: 0px;">Positive: 82% | Negative: 8% | Neutral: 10% </p>
+                      </li>
+                      <li class="timeline-success">
+                        <p style="padding-top: 0px; padding-bottom: 0px;">Enrollment Date: 03/15/18 - 09/15/18 </p>
+                        <p style="padding-top: 0px; padding-bottom: 0px;">Program Name: <a style="color: #0a9cdf; border-bottom: none;" href="">Intensive Outpatient Counseling</a></p>
+                        <p style="padding-top: 0px; padding-bottom: 0px;">Positive: 75% | Negative: 23% | Neutral: 2% </p>
+                      </li>
+                    </ul>
+
+                    2017
+                    <ul class="timeline">
+                        <li class="timeline-failure">
+                          <p style="padding-top: 0px; padding-bottom: 0px;">Enrollment Date: INCOMPLETED </p>
+                          <p style="padding-top: 0px; padding-bottom: 0px;">Program Name: <a style="color: #0a9cdf; border-bottom: none;" href="">Intensive Outpatient Counseling </a></p>
+                          <p style="padding-top: 0px; padding-bottom: 0px;">Positive: 60% | Negative: 45% | Neutral: 5% </p>
+                        </li>
+                      </ul>
+
+                      <ul class="timeline">
+                          <li class="timeline-failure">
+                            <p style="padding-top: 0px; padding-bottom: 0px;">Enrollment Date: INCOMPLETED </p>
+                            <p style="padding-top: 0px; padding-bottom: 0px;">Program Name: <a style="color: #0a9cdf; border-bottom: none;" href="">Intensive Outpatient Counseling </a></p>
+                            <p style="padding-top: 0px; padding-bottom: 0px;">Positive: 30% | Negative: 63% | Neutral: 7% </p>
+                          </li>
+                        </ul>
+
+
+
+                  </div>
+
+                  <div class="col-md-6">
+                    <img style="height: auto; width: 72%;" src="./src/app/clients/sarah.jpg" alt="">
+                    <br>
+                    <label class="dropdown-label" for="">Traumas: Domestic Violence, Sexual Violence, Drug Abuse, <br> Childhood Toxic Stress</label>
+                    <div style="height: 20px;"></div>
+                    <label style="text-decoration: underline" class="dropdown-label" for="">RECOMMENDED PROGRAMS</label> <br>
+                    <label class="dropdown-label" for="">Time and average fair is based off distance from the program's <br> location and Sarah's last reported address</label>
+                    <div style="height: 10px;"></div>
+                    <label class="dropdown-label" for="">Bus Accessible (Within County)</label>
+                    <ul>
+                      <li class="dropdown-label">
+                        <a data-fancybox="" data-options="{&quot;enableEscapeButton&quot;: &quot;true&quot;}" data-src="#trueModal-1" data-modal="true" href="javascript:;" style="color: #0a9cdf;" href="#">First-time Homebuyers </a>(5 mins | $3.43 average fair)
+                      </li>
+                      <li class="dropdown-label">
+                          <a style="color: #0a9cdf;" href="">Credit Counseling  </a>(10 mins | $7.43 average fair)
+                        </li>
+                    </ul>
+
+                    <div style="height: 10px;"></div>
+                    <label class="dropdown-label" for="">Non-public transportation (Outside County)</label>
+                    <ul>
+                      <li class="dropdown-label">
+                        <a style="color: #0a9cdf;" href="">Chabad Movement Recovery </a> <br>(30 mins | $40.50 average Lyft fair)
+                      </li>
+                    </ul>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+
+          </div>
+
+
+
+    </div>
+
+
+<!-- ********************************************************************************************* -->
+<!-- START: PROGRAM LIGHTBOX -->
+
+<div style="position: relative; z-index: 1;display: none;width:1110px; background-color: #fff" id="trueModal-1">
+<div class="modal-header-padding">
+  <h2 class="modal-header--yourSeat">First-time Homebuyers</h2>
+</div>
+
+<nav style="border-bottom: 1px solid #D5D9DE; float: left; height: 633px; width: 160px">
+<!-- <ul style="padding-left: 0px">
+    <li class="numberCircle">1</li>
+    <li class="numberCircle">2</li>
+    <li class="numberCircle">3</li>
+</ul> -->
+
+  <!-- <div onclick="showMe()" style="background-color: #0a9cdf; display: inherit; position: relative; z-index: -1; box-shadow: 0 1px 60px 0 rgba(60,64,67,0" class="sectionA numberCircle-container">
+    <label class="sectionA numberCircle numberCircle--active" for="">1</label>
+    <label class="sectionA numberCircle--text--active" for="">Overview</label>
+  </div> -->
+
+  <div onclick="showMe()" class="sectionA numberBackground--active numberCircle-container numberCircle-container--inactive">
+      <label class="sectionA numberCircle numberCircle--active" for="">1</label>
+      <label class="sectionA numberCircle--text--active" for="">Overview</label>
+  </div>
+
+
+  <div onclick="showMe()" style="display: inherit" class="sectionB numberCircle-container numberCircle-container--inactive">
+      <label class="sectionB numberCircle numberCircle--inactive" for="">2</label>
+      <label class="sectionB numberCircle--text--inactive" for="">Contacts</label>
+  </div>
+
+  <!-- <div onclick="showMe()" style="display: inherit" class="sectionC numberCircle-container numberCircle-container--inactive">
+    <label class="sectionB numberCircle numberCircle--inactive" for="">3</label>
+    <label class="sectionB numberCircle--text--inactive" for="">Benchmarks</label>
+</div>
+
+<div onclick="showMe()" style="display: inherit" class="sectionD numberCircle-container numberCircle-container--inactive">
+  <label class="sectionB numberCircle numberCircle--inactive" for="">4</label>
+  <label class="sectionB numberCircle--text--inactive" for="">Insights</label>
+</div> -->
+
+</nav>
+
+<div class="sections-container" style=" height: 633px; float: right; width: 950px; overflow-y: scroll; overflow-x: hidden">
+
+<section id="section1" style="padding-left: 29px; padding-right: 29px">
+  <div style="height:32px"></div>
+  <div>
+
+        <div class="row">
+
+            <div class="col-sm-3">
+
+                    <label class="dropdown-label" for="">PROGRAMS</label>
+                    <h1 style="color: #494949;font-size: 14px; font-weight: 200">First-time Homebuyers</h1>
+
+            </div>
+
+
+            <div class="col-sm-3">
+
+                <label class="dropdown-label" for="">AGENCY</label>
+                <h1 style="color: #494949;font-size: 14px; font-weight: 200">Human Services</h1>
+
+          </div>
+
+
+          <div class="col-sm-3">
+
+              <label class="dropdown-label" for="">COUNTY</label>
+              <h1 style="color: #494949;font-size: 14px; font-weight: 200">Montgomery County</h1>
+
+        </div>
+
+
+        <div class="col-sm-3">
+
+            <label class="dropdown-label" for="">STATE</label>
+            <h1 style="color: #494949;font-size: 14px; font-weight: 200">VA</h1>
+
+      </div>
+
+          </div><!--  end of row -->
+
+      <div style="height: 21px;"></div>
+
+      <div class="row">
+        <div class="col-sm-6">
+
+            <label class="dropdown-label" for="">CURRENT ADDRESS</label>
+            <h1 style="color: #494949;font-size: 14px; font-weight: 200">110 Roanoke St, Christiansburg, VA 24073</h1>
+
+        </div>
+
+        <div class="col-sm-3">
+
+            <label class="dropdown-label" for="">BUS ACCESSIBLE</label>
+            <h1 style="color: #494949;font-size: 14px; font-weight: 200">Yes</h1>
+
+        </div>
+
+        <div class="col-sm-3">
+
+            <label class="dropdown-label" for="">METRO ACCESSIBLE</label>
+            <h1 style="color: #494949;font-size: 14px; font-weight: 200">No</h1>
+
+        </div>
+
+     </div>
+
+
+          <div style="height: 21px"></div>
+
+          <label class="dropdown-label" for="">DESCRIPTION</label>
+
+          <div class="row">
+
+              <div class="col-sm-12">
+                  <h1 style="color: #494949;font-size: 14px; font-weight: 200">The First-time Homebuyers program is designed to help low-income Montgomery County residents obtaining their first home </h1>
+                  <!-- <textarea style="padding-left: 11px; padding-top: 11px; color: #494949; font-size: 14px; width: 100%; border-radius: 3px; border: 1px solid #B5B5B5; height: 266px" name="" id="" cols="30" rows="10" placeholder="fadf">Group residential housing or GRH, aspires to place individuals in need of housing in services in to a safe location to receive food and shelter. Reside Group residential housing or GRH, aspires to place individuals in need of housing in.</textarea>
+                            -->
+
+              </div>
+
+
+          </div><!--  end of row -->
+
+          <hr> <hr>
+
+
+
+
+                            <div class="row">
+
+                                <div class="col-sm-6">
+
+                                  <div class="dropdown">
+                                     <label class="dropdown-label" for="">ENROLL CLIENT</label>
+                                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <div id="changeValue-provider" class="dropdown-text">Select Option</div>
+                                      </button>
+                                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item dropdown-item-provider">Yes</a>
+                                        <a class="dropdown-item dropdown-item-provider">No</a>
+                                      </div>
+                                    </div>
+
+                                </div>
+              </div>
+
+
+
+          <!-- <div style="height: 21px"></div> -->
+
+
+
+
+          <div class="row">
+
+            <div class="col-sm-6">
+
+
+            </div>
+
+</div>
+
+
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="width: 99%; display: none;">
+    <div class="carousel-inner" role="listbox">
+      <div class="carousel-item active">
+          <div style="padding-left: 22px; padding-right: 22px;" class="alert alert-info" role="alert">
+              We found <span style="text-decoration: underline">2 clients</span> from Residental Placement Care program within your Parent Training program. Once your Parent Training program ends (2/15/2019), we'll begin recommending additional programs for those clients.
+
+            </div>
+      </div>
+    </div>
+
+</div>
+
+
+<div style="height: 21px"></div>
+
+  </div>
+
+</section>
+
+<section id="section2" class="hide">
+
+    <div style="height:32px"></div>
+
+    <div style="padding-left: 29px; padding-right: 29px;" class="row">
+        <div style="border-bottom: 1px solid #D5D9DE; padding-bottom: 32px" class="col-sm-1">
+            <label class="userCircle" for="">LL</label>
+        </div>
+
+        <div style="border-bottom: 1px solid #D5D9DE" class="col-sm-6">
+              <ul style="list-style-type: none">
+                  <li style="color: #494949; font-size: 20px;">Larry Lindsey</li>
+                  <li style="color: #4C4F55; font-size: 14px;">Director | (540) 382-6990, x53420</li>
+                  <li style="color: #0a9cdf; font-size: 14px;">larry.lindsey@dss.virginia.gov</li>
+              </ul>
+        </div>
+
+        <div style="border-bottom: 1px solid #D5D9DE" class="col-md-5">
+
+            <div style="height: 20px"></div>
+
+          </div>
+
+    </div>
+
+    <div style="height:32px"></div>
+
+
+
+
+
+  <div style="padding-left: 29px; padding-right: 29px;" class="row">
+
+
+
+  </div>
+
+  <div style="padding-left: 29px; padding-right: 29px;" class="row">
+
+      <div class="col-sm-12">
+            <div style="height: 32px;"></div>
+
+
+            <div style="height: 32px;"></div>
+
+      </div>
+
+      <div style="height: 32px;"></div>
+  </div>
+
+</section>
+
+
+<section style="padding-left: 29px; padding-right: 29px" id="section3" class="hide">
+
+<div class="row">
+<div class="col-sm-3">
+
+  <div style="height: 32px"></div>
+  <label class="dropdown-label" for="">Positive</label>
+  <h1 style="color: #494949;font-size: 14px; font-weight: 200">70%</h1>
+
+</div>
+
+<div class="col-sm-3">
+
+  <div style="height: 32px"></div>
+  <label class="dropdown-label" for="">Neutral</label>
+  <h1 style="color: #494949;font-size: 14px; font-weight: 200">10%</h1>
+
+</div>
+
+<div class="col-sm-3">
+
+    <div style="height: 32px"></div>
+    <label class="dropdown-label" for="">Negative</label>
+    <h1 style="color: #494949;font-size: 14px; font-weight: 200">20%</h1>
+
+  </div>
+
+</div>
+
+
+<script>
+$(function() {
+$('.project').each(function() {
+var $projectBar = $(this).find('.bar');
+var $projectPercent = $(this).find('.percent');
+var $projectRange = $(this).find('.ui-slider-range');
+$projectBar.slider({
+range: "min",
+animate: true,
+value: 1,
+min: 0,
+max: 100,
+step: 1,
+slide: function(event, ui) {
+  $projectPercent.val(ui.value + "%");
+},
+change: function(event, ui) {
+  var $projectRange = $(this).find('.ui-slider-range');
+  var percent = ui.value;
+  if (percent < 30) {
+    $projectPercent.css({
+      'color': 'red'
+    });
+    $projectRange.css({
+      'background': '#f20000'
+    });
+  } else if (percent > 31 && percent < 70) {
+    $projectPercent.css({
+      'color': 'gold'
+    });
+    $projectRange.css({
+      'background': 'gold'
+    });
+  } else if (percent > 70) {
+    $projectPercent.css({
+      'color': 'green'
+    });
+    $projectRange.css({
+      'background': 'green'
+    });
+  }
+}
+});
+})
+})
+
+</script>
+
+</section>
+
+<!-- <section>
+      <h1  onclick="showMe()" id="section3">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English
+        dfasdfafkjfdgsjg213123 </h1>
+</section>  -->
+
+</div>
+<div style="padding-bottom: 16px; text-align: right; padding-right: 28px;">
+ <a data-fancybox-close style="color: #494949; text-decoration: underline">Cancel</a>
+ <button style="margin-top: 20px; margin-left: 24px;" class="button-submit">Submit</button>
+</div>
+  <script>
+
+      function showMe(){
+
+        var class1 = document.getElementsByClassName('numberCircle--active');
+        $(class1).removeClass("numberCircle--active").addClass("numberCircle--inactive")
+
+        var class2 = document.getElementsByClassName('numberBackground--active')
+        $(class2).removeClass("numberBackground--active")
+
+        var class3 = document.getElementsByClassName('numberCircle--text--active')
+        $(class3).removeClass("numberCircle--text--active").addClass("numberCircle--text--inactive")
+
+
+        container = event.target
+        $(container).addClass("numberBackground--active")
+        console.log(container)
+
+        label1 = event.target.getElementsByTagName('label')[0]
+        $(label1).removeClass("numberCircle--inactive").addClass("numberCircle--active")
+
+        label2 = event.target.getElementsByTagName('label')[1]
+        $(label2).removeClass("numberCircle--text--inactive").addClass("numberCircle--text--active")
+
+
+
+
+
+        console.log(event.target.getElementsByTagName('label')[0])
+
+          var navigation = $(event.target).parent()
+
+          console.log(this)
+
+
+         var clickedItem = $(event.target).attr('class').split(' ')[0]
+
+
+         if (clickedItem === "sectionA"){
+
+          var section1 = document.getElementById("section1")
+           $(section1).removeClass("hide")
+
+           var section2 = document.getElementById("section2")
+           $(section2).addClass("hide")
+
+          var section3 =  document.getElementById("section3")
+           $(section3).addClass("hide")
+
+
+           var sectionA = document.getElementsByClassName(clickedItem)
+
+
+
+         }
+         else if (clickedItem === "sectionB"){
+
+           var section1 = document.getElementById("section1")
+           $(section1).addClass("hide")
+
+           var section2 = document.getElementById("section2")
+           $(section2).removeClass("hide")
+
+           var section3 = document.getElementById("section3")
+           $(section3).addClass("hide")
+
+
+         }
+         else if (clickedItem === "sectionC"){
+
+          var section1 = document.getElementById("section1")
+           $(section1).addClass("hide")
+
+           var section2 = document.getElementById("section2")
+           $(section2).addClass("hide")
+
+           var section3 = document.getElementById("section3")
+           $(section3).removeClass("hide")
+
+        }
+
+
+      }
+
+  </script>
+
+</div>
+
+<!-- END: PROGRAM LIGHTBOX -->
+<!-- ********************************************************************************************* -->
+
+
+</div>
+<!-- end of section-controller-group -->

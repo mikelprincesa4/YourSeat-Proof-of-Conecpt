@@ -1,3 +1,601 @@
-<p>
-  summary works!
-</p>
+<div class="section-controller-group">
+
+        <div class="container">
+
+
+               <div class="spacer-24px"></div>
+
+                      <div class="row">
+
+                        <div class="col-sm-6">
+
+                          <div class="dropdown">
+                             <label class="dropdown-label" for="">PROGRAMS</label>
+                              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <div id="changeValue" class="dropdown-text-program1 dropdown-text">All | Social Services</div>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item all dropdown-item-programs dropdown-item-top bold">All</a>
+                                <a class="dropdown-item childs-health dropdown-item-programs">Family Reunification</a>
+                                <a class="dropdown-item vets-health dropdown-item-programs ">Substance Abuse & Preventation</a>
+                                <a class="dropdown-item vets-health dropdown-item-programs ">Foster Care</a>
+                              </div>
+                            </div>
+
+                        </div>
+
+
+
+
+                        <div class="col-sm-3">
+                            <div class="dropdown">
+                                <label class="dropdown-label" for="">DATE RANGE</label>
+                                <i class="fal fa-calendar-alt calendar data-range"></i>
+                                <input class="btn btn-secondary dropdown-toggle calendar" type="text" name="daterange" value="01/01/2019 - 04/01/2019"/>
+
+                              </div>
+                        </div>
+
+                        <div class="col-sm-3">
+                          <label class="advanced" onclick="changeVisibility()" for=""> Advanced</label>
+                       </div>
+
+
+                        <script>
+                            $(function() {
+                              $('.calendar').daterangepicker({
+                                opens: 'left'
+                              }, function(start, end, label) {
+                                console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+                              });
+                            });
+                          </script>
+
+                        </div><!--  end of row -->
+
+                        <div class="spacer-24px"></div>
+
+                        <div class="row">
+
+                                    <div class="col-sm-3">
+                            <div class="dropdown">
+                                <label class="dropdown-label" for="">CLIENTS</label>
+                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                   <div id="changeValue-client" class="dropdown-text">All</div>
+                                 </button>
+                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                   <a class="dropdown-item dropdown-item-client bold" href="#">All</a>
+                                   <a class="dropdown-item dropdown-item-client" href="#">Adams, Scott</a>
+                                   <a class="dropdown-item dropdown-item-client" href="#">Adler, Alfred</a>
+                                   <a class="dropdown-item dropdown-item-client" href="#">Ahbez, Eden</a>
+                                   <a class="dropdown-item dropdown-item-client" href="#">Amiel, Barbara</a>
+                                   <a class="dropdown-item dropdown-item-client" href="#">Burns, Edward</a>
+                                   <a class="dropdown-item dropdown-item-client" href="#">Byrne, David</a>
+                                   <a class="dropdown-item dropdown-item-client" href="#">Carter, Elliott</a>
+                                   <a class="dropdown-item dropdown-item-client" href="#">Cather, Willa</a>
+                                   <a class="dropdown-item dropdown-item-client" href="#">Chapin, Harry</a>
+                                   <a class="dropdown-item dropdown-item-client" href="#">Chicago, Judy</a>
+                                   <a class="dropdown-item dropdown-item-client" href="#">Dauten, Dale</a>
+                                 </div>
+                            </div>
+
+                        </div>
+
+                        <script>
+
+                            $(".dropdown-item-programs").click(function(event) {
+                                $( ".applyBtn" ).click();
+                                var text = $(event.target).text();
+                                var id = $(event.target.id)
+                                document.getElementById("changeValue").innerHTML = text + " | Human Services";
+
+                                var findValuetoUnhide = jQuery(this).attr('class').split(' ')[1]
+
+                                var value = document.getElementById(findValuetoUnhide)
+                                console.log(findValuetoUnhide + " is the value")
+
+                                var vet = document.getElementById("vets-health")
+                                $(vet).addClass("hide")
+
+                                var children = document.getElementById("childs-health")
+                                $(children).addClass("hide")
+
+                                var adult = document.getElementById("adults-health")
+                                $(adult).addClass("hide")
+
+                                $(value).removeClass( "hide")
+
+                                var container = document.getElementsByClassName("pagination-container")
+                                $(container).addClass("hide")
+
+                                if (findValuetoUnhide == "all"){
+                                  console.log('this is America')
+                                  $(children).removeClass("hide")
+                                  $(container).removeClass("hide")
+                                }
+
+                            });
+
+                            $(".dropdown-item-provider").click(function(event) {
+                                $( ".applyBtn" ).click();
+                                var text = $(event.target).text();
+                                console.log(text)
+                                var id = $(event.target.id)
+                                document.getElementById("changeValue-provider").innerHTML = text;
+                            });
+
+                            $(".dropdown-item-client").click(function(event) {
+                                $( ".applyBtn" ).click();
+                                var text = $(event.target).text();
+                                console.log(text)
+                                var id = $(event.target.id)
+                                document.getElementById("changeValue-client").innerHTML = text;
+                            });
+
+
+                            </script>
+
+
+                        </div><!--  end of row -->
+
+
+                        <div id="myDIV" style="display: none" class="row">
+
+                          <div class="spacer-24px"></div>
+
+                          <div class="col-sm-6">
+
+                                  <div class="dropdown">
+                                          <label class="dropdown-label" for="">AGENCY</label>
+                                          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <div class="dropdown-text">Social Services</div>
+                                          </button>
+                                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item bold" href="#">All</a>
+                                            <a class="dropdown-item" href="#">Health Deparment</a>
+                                            <a class="dropdown-item" href="#">Human Services</a>
+                                            <a class="dropdown-item" href="#">Social Services</a>
+                                          </div>
+                                        </div>
+
+                          </div>
+
+                          <div class="spacer-24px"></div>
+
+                          <div class="col-sm-6">
+
+                                  <div class="dropdown">
+                                          <label class="dropdown-label" for="">COUNTY</label>
+                                          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <div class="dropdown-text">Montgomery County</div>
+                                          </button>
+                                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item bold" href="#">All</a>
+                                            <a class="dropdown-item" href="#">Montgomery County</a>
+                                            <a class="dropdown-item" href="#">Lee County</a>
+                                            <a class="dropdown-item" href="#">Norton County</a>
+                                            <a class="dropdown-item" href="#">Wise County</a>
+                                            <a class="dropdown-item" href="#">Scott County</a>
+                                            <a class="dropdown-item" href="#">Dickenson County</a>
+                                            <a class="dropdown-item" href="#">Buchanan County</a>
+                                            <a class="dropdown-item" href="#">Tazewell County</a>
+                                            <a class="dropdown-item" href="#">Russell County</a>
+                                            <a class="dropdown-item" href="#">Washington County</a>
+                                            <a class="dropdown-item" href="#">Smyth County</a>
+                                            <a class="dropdown-item" href="#">Grayson County</a>
+                                            <a class="dropdown-item" href="#">Wythe County</a>
+                                            <a class="dropdown-item" href="#">Bland County</a>
+                                            <a class="dropdown-item" href="#">Carroll County</a>
+                                            <a class="dropdown-item" href="#">Pulaski County</a>
+                                            <a class="dropdown-item" href="#">Giles County</a>
+                                            <a class="dropdown-item" href="#">Radford County</a>
+                                            <a class="dropdown-item" href="#">Galax County</a>
+                                            <a class="dropdown-item" href="#">Patrick County</a>
+                                          </div>
+                                        </div>
+
+                          </div>
+
+                        <script>
+
+                          function changeVisibility(){
+                              var x = document.getElementById("myDIV");
+                                      if (x.style.display === "block") {
+                                          x.style.display = "none";
+                                      } else {
+                                          x.style.display = "block";
+                                      }
+                              }
+
+                      </script>
+
+                      <div class="spacer-30px"></div>
+
+         </div><!-- end of container -->
+
+  </div>
+</div>  <!--  end of section-controller-group -->
+
+<div class="spacer-30px"></div>
+
+<div id="childs-health" class="container programs">
+
+    <div class="summary-chart-container">
+        <div class="spacer-16px"></div>
+        <div class="row">
+        <div class="no-col-padding col-md-6">
+          <h1 class="program-header">Family Reunification</h1>
+              <h2 class="program-description">Increase client's parenting skills in supporting child's needs</h2>
+        </div>
+
+        <div class="col-md-6">
+          <div class="wrap">
+            <div class="control-box-view">
+                <i class="fal fa-eye icon-center"></i>
+                <label class="icon-label" for="">Details</label>
+            </div>
+            <div class="control-box-edit">
+                <i id="edit" data-fancybox="" data-options="{&quot;enableEscapeButton&quot;: &quot;true&quot;}" data-src="#trueModal-1" data-modal="true" href="javascript:;" class="fal fa-pencil-alt icon-center"></i>
+                <label class="icon-label" for="">Edit</label>
+            </div>
+          </div>
+        </div>
+
+      </div> <!-- end of row -->
+
+        <div class="spacer-20px"></div>
+      </div>
+
+
+      <div class="summary-chart-container" style="">
+
+              <div class="spacer-41px"></div>
+
+                <div class="row">
+
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="width: 99%">
+                        <div class="carousel-inner" role="listbox">
+                          <div class="carousel-item active">
+                              <div style="padding-left: 72px; padding-right: 72px;" class="alert alert-success" role="alert">
+                                  Nice! Within the time frame selected, the program's progressing nicely towards the positive response benchmark of 75%. Your top respondents include: <span class="provider-positive-feedback" style="text-decoration: underline">Alfred Alder</span> ,  <span class="provider-positive-feedback" style="text-decoration: underline"> David Byrne</span> & <span class="provider-positive-feedback" style="text-decoration: underline"> Harry Chapin</span>
+                                </div>
+                          </div>
+                          <div class="carousel-item">
+                              <div style="padding-left: 72px; padding-right: 72px;" class="alert alert-warning" role="alert">
+                                  Not so nice. Within the time frame selected, a few clients shared some not so great feedback. You may want to do some discovering: <span class="provider-negative-feedback" style="text-decoration: underline">Willis Cather</span> ,  <span class="provider-negative-feedback" style="text-decoration: underline"> Judy Chicago </span> & <span class="provider-negative-feedback" style="text-decoration: underline"> Dauten Dale</span>
+
+                                </div>
+                          </div>
+                        </div>
+                        <div class="spacer-41px"></div>
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                          <span style="position: relative; top: -27px; right: 46px" class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                          <span style="position: relative; top: -27px; right: -53px" class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="sr-only">Next</span>
+                        </a>
+                      </div>
+
+<script>
+                              $(".dropdown-item-provider").click(function(event) {
+                                $( ".applyBtn" ).click();
+                                var text = $(event.target).text();
+                                console.log(text)
+                                var id = $(event.target.id)
+                                document.getElementById("changeValue-provider").innerHTML = text;
+                            });
+
+                              $(".provider-negative-feedback").click(function(event) {
+                                // $( ".applyBtn" ).click();
+                                var text = $(event.target).text();
+                                console.log(text)
+                                var id = $(event.target.id)
+                                document.getElementById("changeValue-client").innerHTML = text;
+
+                                var dateRange =  $(".calendar")
+
+                                console.log(dateRange)
+
+                                counter++
+                                previousNumber = counter - 1
+                                console.log(previousNumber)
+                                var array1 = [10, 20, 70, 86, 4, 10, 10, 30, 40]
+                                var array2 = [11, 4, 85, 66, 33, 1, 5, 15, 80]
+                                var array3 = [5, 20, 75, 80, 12, 8, 1, 65, 34]
+                                var array4 = [7, 3, 90, 44, 40, 16, 10, 2, 88]
+                                var array5 = [4, 8, 88, 62, 22, 16, 68, 9, 23]
+                                var array6 = [10, 20, 70, 44, 40, 16, 16, 22, 62]
+                                var array7 = [11, 4, 85, 62, 22, 16, 16, 40, 44]
+                                var array8 = [5, 20, 75, 50, 40, 20, 70, 8, 12, 80]
+                                var array9 = [7, 3, 90, 50, 33, 77, 57, 1, 33, 66]
+                                var array10 = [4, 8, 88, 50, 68, 23, 44, 10, 4, 86]
+
+                                console.log(counter)
+                                $('.chart').each(function(index, elem){
+
+                                  if (counter === counter ){
+
+                                    var value = array1[index]
+                                    console.log(value)
+
+                                    console.log($(elem))
+
+                                    $(elem).find('span').text(value)
+
+                                    $(elem).data('easyPieChart').update(value)
+
+                                  }
+
+                                  if (counter === 2){
+
+                                    var value = array2[index]
+
+                                    $(elem).find('span').text(value)
+
+                                    $(elem).data('easyPieChart').update(value)
+
+                                  }
+
+                                  if (counter === 3){
+
+                                  var value = array3[index]
+
+                                  $(elem).find('span').text(value)
+
+                                  $(elem).data('easyPieChart').update(value)
+
+                                  }
+
+                                  if (counter === 4){
+
+                                  var value = array4[index]
+
+                                  $(elem).find('span').text(value)
+
+                                  $(elem).data('easyPieChart').update(value)
+
+                                  }
+
+                                  if (counter === 5){
+
+                                  var value = array4[index]
+
+                                  $(elem).find('span').text(value)
+
+                                  $(elem).data('easyPieChart').update(value)
+
+                                  }
+
+                                  if (counter === 6){
+
+                                  var value = array4[index]
+
+                                  $(elem).find('span').text(value)
+
+                                  $(elem).data('easyPieChart').update(value)
+
+                                  }
+
+                                  if (counter === 7){
+
+                                  var value = array4[index]
+
+                                  $(elem).find('span').text(value)
+
+                                  $(elem).data('easyPieChart').update(value)
+
+                                  }
+
+                                  if (counter === 8){
+
+                                  var value = array4[index]
+
+                                  $(elem).find('span').text(value)
+
+                                  $(elem).data('easyPieChart').update(value)
+
+                                  }
+
+                                  if (counter === 9){
+
+                                  var value = array4[index]
+
+                                  $(elem).find('span').text(value)
+
+                                  $(elem).data('easyPieChart').update(value)
+
+                                  }
+
+                                  if (counter === 10){
+
+                                  var value = array4[index]
+
+                                  $(elem).find('span').text(value)
+
+                                  $(elem).data('easyPieChart').update(value)
+
+                                  counter = 0
+
+                                  }
+
+                                })
+
+
+                                });
+
+
+
+
+                              $(".provider-positive-feedback").click(function(event) {
+                                // $( ".applyBtn" ).click();
+                                var text = $(event.target).text();
+                                console.log(text)
+                                var id = $(event.target.id)
+                                document.getElementById("changeValue-client").innerHTML = text;
+
+                                var dateRange =  $(".calendar")
+
+                                console.log(dateRange)
+
+                                counter++
+                                previousNumber = counter - 1
+                                console.log(previousNumber)
+                                var array1 = [88, 2, 8]
+                                var array2 = [94, 1, 6]
+                                var array3 = [86, 7, 7]
+                                var array4 = [99, 99, 99]
+                                var array5 = [88, 88, 88]
+                                var array6 = [77, 77, 77]
+                                var array7 = [11, 4, 85, 62, 22, 16, 16, 40, 44]
+                                var array8 = [5, 20, 75, 50, 40, 20, 70, 8, 12, 80]
+                                var array9 = [7, 3, 90, 50, 33, 77, 57, 1, 33, 66]
+                                var array10 = [4, 8, 88, 50, 68, 23, 44, 10, 4, 86]
+
+                                console.log(counter)
+                                $('.chart').each(function(index, elem){
+
+                                  if (counter === counter ){
+
+                                    var value = array1[index]
+                                    console.log(value)
+
+                                    console.log($(elem))
+
+                                    $(elem).find('span').text(value)
+
+                                    $(elem).data('easyPieChart').update(value)
+
+                                  }
+
+                                  if (counter === 2){
+
+                                    var value = array2[index]
+
+                                    $(elem).find('span').text(value)
+
+                                    $(elem).data('easyPieChart').update(value)
+
+                                  }
+
+                                  if (counter === 3){
+
+                                  var value = array3[index]
+
+                                  $(elem).find('span').text(value)
+
+                                  $(elem).data('easyPieChart').update(value)
+
+                                  }
+
+                                  if (counter === 4){
+
+                                  var value = array4[index]
+
+                                  $(elem).find('span').text(value)
+
+                                  $(elem).data('easyPieChart').update(value)
+
+                                  }
+
+                                  if (counter === 5){
+
+                                  var value = array4[index]
+
+                                  $(elem).find('span').text(value)
+
+                                  $(elem).data('easyPieChart').update(value)
+
+                                  }
+
+                                  if (counter === 6){
+
+                                  var value = array4[index]
+
+                                  $(elem).find('span').text(value)
+
+                                  $(elem).data('easyPieChart').update(value)
+
+                                  }
+
+                                  if (counter === 7){
+
+                                  var value = array4[index]
+
+                                  $(elem).find('span').text(value)
+
+                                  $(elem).data('easyPieChart').update(value)
+
+                                  }
+
+                                  if (counter === 8){
+
+                                  var value = array4[index]
+
+                                  $(elem).find('span').text(value)
+
+                                  $(elem).data('easyPieChart').update(value)
+
+                                  }
+
+                                  if (counter === 9){
+
+                                  var value = array4[index]
+
+                                  $(elem).find('span').text(value)
+
+                                  $(elem).data('easyPieChart').update(value)
+
+                                  }
+
+                                  if (counter === 10){
+
+                                  var value = array4[index]
+
+                                  $(elem).find('span').text(value)
+
+                                  $(elem).data('easyPieChart').update(value)
+
+                                  counter = 0
+
+                                  }
+
+                                })
+
+
+                                });
+</script>
+
+
+                    <div class="col-md-4">
+
+                        <h1 class="chart-label">POSITIVE</h1>
+                        <div class="spacer-41px"></div>
+                        <div class="chart chart1 easyPieChart" data-percent="72" style="width: 290px; height: 290px; line-height: 290px;"><span class="chart-data">72</span>%<canvas width="290" height="290"></canvas></div>
+
+                    </div> <!-- end of col-md-4 -->
+
+                    <div class="col-md-4">
+
+                        <h1 class="chart-label">NEUTRAL</h1>
+                        <div class="spacer-41px"></div>
+                        <div class="chart chart2 easyPieChart" data-percent="10" style="width: 290px; height: 290px; line-height: 290px;"><span class="chart-data">10</span>%<canvas width="290" height="290"></canvas></div>
+
+                    </div> <!-- end of col-md-4 -->
+
+                    <div class="col-md-4">
+
+                        <h1 class="chart-label">NEGATIVE</h1>
+                        <div class="spacer-41px"></div>
+                        <div class="chart chart3 easyPieChart" data-percent="18" style="width: 290px; height: 290px; line-height: 290px;"><span class="chart-data">18</span>%<canvas width="290" height="290"></canvas></div>
+
+                    </div> <!-- end of col-md-4 -->
+
+                </div>
+
+                <div class="spacer-67-21px"></div>
+
+              </div>
+
+</div>
