@@ -1,4 +1,5 @@
 <header class="header">
+
   <div class="container">
     <div class="spacer-30px"></div>
 
@@ -21,14 +22,14 @@
         <!--
           <li><a href="pages/response.html"  class="link" href="">Response</a></li><div class="divider">|</div>
         -->
-        <li><a href="pages/budget.html" class="link" href="">Clients</a></li>
+        <li><a routerLink = "clients" routerLinkActive="link link--currentPage" href="">Clients</a></li>
         <div class="divider">|</div>
         <li>
-          <a href="pages/performance.html" class="link" href="">Performance</a>
+          <a routerLink ="performance" routerLinkActive="link link--currentPage" href="">Performance</a>
         </li>
         <div class="divider">|</div>
         <li>
-          <a href="pages/summary.html" class="link link--currentPage" href="">Summary</a>
+          <a routerLink = "summary" routerLinkActive="link link--currentPage" href="">Summary</a>
         </li>
         <div class="divider">|</div>
       </ul>
@@ -38,30 +39,5 @@
 </header>
 
 <div>
-<app-clients></app-clients>
-</div>
-
-<div class="spacer-139px"></div>
-
-<div class="pagination-container">
-  <div class="spacer-25px"></div>
-
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="pagination-button pagination-button-left">
-          <i class="fal fa-angle-left"
-            ><label class="pagination-label" for="">Last Program</label></i
-          >
-        </div>
-      </div>
-
-      <div class="col-sm-6">
-        <div class="pagination-button pagination-button-right float-right">
-          <label class="pagination-label" for="">Next Program</label
-          ><i class="fal fa-angle-right"></i>
-        </div>
-      </div>
-    </div>
-  </div>
+<router-outlet></router-outlet>
 </div>
