@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./clients.component.scss']
 })
 export class ClientsComponent implements OnInit {
-
+  isVisible = false;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  changeVisbility(){
+    this.isVisible = !this.isVisible;
+    console.log(this.isVisible);
   }
 
 }

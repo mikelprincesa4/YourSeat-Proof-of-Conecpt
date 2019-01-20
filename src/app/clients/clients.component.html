@@ -35,20 +35,8 @@
                         </div>
 
                         <div class="col-sm-3">
-                          <div class="spacer-26px"></div>
-                          <label class="advanced" onclick="changeVisibility()" for=""> Advanced</label>
+                          <label class="advanced" (click)= "changeVisbility()" for="">Advanced</label>
                        </div>
-
-
-                        <script>
-                            $(function() {
-                              $('.calendar').daterangepicker({
-                                opens: 'left'
-                              }, function(start, end, label) {
-                                console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
-                              });
-                            });
-                          </script>
 
 					  </div><!--  end of row -->
 
@@ -82,66 +70,44 @@
 
 						</div>
 
-						</div>
+          </div><!--  end of row -->
 
-					  </div><!--  end of row -->
+            <div id="myDIV" style="display: block" class="row" *ngIf="isVisible">
 
-                        <div id="myDIV" style="display: none" class="row">
+            <div class ="col-sm-6" >
 
-						<div class="spacer-24px"></div>
-
-                          <div class="col-sm-6">
-
-                                  <div class="dropdown">
-                                          <label class="dropdown-label" for="">AGENCY</label>
-                                          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <div class="dropdown-text">Human Services</div>
-                                          </button>
-                                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item bold" href="#">All</a>
-                                            <a class="dropdown-item" href="#">Public Health</a>
-                                            <a class="dropdown-item" href="#">Housing</a>
-                                            <a class="dropdown-item" href="#">Corrections</a>
-                                          </div>
-                                        </div>
-
-                          </div>
-
-                          <div class="spacer-24px"></div>
-
-                          <div class="col-sm-6">
-
-                                  <div class="dropdown">
-                                          <label class="dropdown-label" for="">COUNTY</label>
-                                          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <div class="dropdown-text">Washington County</div>
-                                          </button>
-                                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item bold" href="#">All</a>
-                                            <a class="dropdown-item" href="#">Anoka County</a>
-                                            <a class="dropdown-item" href="#">Becker County</a>
-                                            <a class="dropdown-item" href="#">Beltrami County</a>
-                                          </div>
-                                        </div>
-
-                          </div>
-
-                        <script>
-
-                          function changeVisibility(){
-                              var x = document.getElementById("myDIV");
-                                      if (x.style.display === "block") {
-                                          x.style.display = "none";
-                                      } else {
-                                          x.style.display = "block";
-                                      }
-                              }
-
-                      </script>
+                          <div class="dropdown">
+                                  <label class="dropdown-label" for="">AGENCY</label>
+                                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <div class="dropdown-text">Human Services</div>
+                                  </button>
+                                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item bold" href="#">All</a>
+                                    <a class="dropdown-item" href="#">Public Health</a>
+                                    <a class="dropdown-item" href="#">Housing</a>
+                                    <a class="dropdown-item" href="#">Corrections</a>
+                                  </div>
+                                </div>
 
 
-                      <div class="spacer-30px"></div>
+                  <div class="spacer-24px"></div>
 
+                          <div class="dropdown">
+                                  <label class="dropdown-label" for="">COUNTY</label>
+                                  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <div class="dropdown-text">Washington County</div>
+                                  </button>
+                                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item bold" href="#">All</a>
+                                    <a class="dropdown-item" href="#">Anoka County</a>
+                                    <a class="dropdown-item" href="#">Becker County</a>
+                                    <a class="dropdown-item" href="#">Beltrami County</a>
+                                  </div>
+                                </div>
+
+                </div>
+            <div class="spacer-30px"></div>
+        </div>
          </div><!-- end of container -->
 
 		</div>  <!--  end of section-controller-group -->

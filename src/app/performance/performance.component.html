@@ -35,7 +35,7 @@
                     </div>
 
                     <div class="col-sm-3">
-                        <label class="advanced" onclick="changeVisibility()" for=""> Advanced</label>
+                        <label class="advanced" (click)="changeVis()" for=""> Advanced</label>
                     </div>
 
                     <script>
@@ -50,7 +50,6 @@
 
 
                   </div><!--  end of row -->
-
 
                   <div class="spacer-24px"></div>
 
@@ -143,9 +142,10 @@
 
 
 
-                  <div id="myDIV" style="display: none" class="row">
+                  <div id="myDIV" style="display: block" class="row" *ngIf = "isVisible">
 
-
+                    <div class="spacer-24px"></div>
+                    
                     <div class="col-sm-6">
 
                             <div class="dropdown">
@@ -179,20 +179,6 @@
                                    </div>
 
                     </div>
-
-
-                    <script>
-
-                        function changeVisibility(){
-                            var x = document.getElementById("myDIV");
-                                    if (x.style.display === "block") {
-                                        x.style.display = "none";
-                                    } else {
-                                        x.style.display = "block";
-                                    }
-                            }
-
-                    </script>
 
                   </div><!--  end of row -->
 
